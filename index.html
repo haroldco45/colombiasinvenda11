@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colombia Sin Venda — Día 11: Las Masacres que No Salen en las Canciones</title>
+<meta name="description" content="4.237 masacres. 24.600 muertos. El 62% de los municipios colombianos tienen al menos una. Estas son las historias que nadie canta.">
+<meta property="og:title" content="Colombia Sin Venda — Día 11: Las Masacres que No Salen en las Canciones">
+<meta property="og:description" content="Bojayá. El Salado. La Rochela. El Naya. Trujillo. Nombres que Colombia nunca debería olvidar.">
+<meta property="og:image" content="https://placehold.co/1200x630/080000/cc2200?text=Las+Masacres+que+No+Salen+en+las+Canciones">
+<meta property="og:url" content="https://haroldco45.github.io/colombia-sin-venda/dia11">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#080000">
+<link rel="manifest" href="#" id="manifest-link">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Montserrat:wght@400;600;800;900&family=Courier+New&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sangre:#cc2200;
+  --sangre-dim:#8b1500;
+  --sangre-s:rgba(204,34,0,.1);
+  --naranja:#e05010;
+  --dorado:#d4a020;
+  --gris-claro:#888;
+  --fondo:#080000;
+  --panel:#110000;
+  --panel2:#160000;
+  --borde:rgba(204,34,0,.18);
+  --borde-f:rgba(204,34,0,.45);
+  --blanco:#faf0ee;
+  --texto:#c09090;
+  --dim:#6a3030;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--fondo);color:var(--blanco);font-family:'Merriweather',serif;overflow-x:hidden;}
+
+/* ── INTRO ── */
+#intro{
+  position:fixed;inset:0;background:var(--fondo);z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.9rem;padding:2rem;text-align:center;
+  animation:killI .5s ease 4.2s forwards;
+}
+.intro-num{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:5.5rem;color:var(--sangre);line-height:1;
+  opacity:0;animation:fU .5s ease .3s forwards;
+  letter-spacing:-.02em;
+}
+.intro-label{
+  font-family:'Courier New',monospace;font-size:.58rem;
+  letter-spacing:.25em;color:var(--texto);
+  opacity:0;animation:fU .4s ease .9s forwards;line-height:1.6;
+}
+.intro-sep{width:0;height:2px;background:var(--sangre);opacity:0;
+  animation:fU .3s ease 1.5s forwards,growW .6s ease 1.5s forwards;}
+.intro-sub{
+  font-family:'Courier New',monospace;font-size:.56rem;
+  letter-spacing:.2em;color:var(--sangre);
+  opacity:0;animation:fU .4s ease 2s forwards;
+}
+.intro-cita{
+  font-family:'Merriweather',serif;font-style:italic;font-weight:300;
+  font-size:.92rem;color:var(--texto);max-width:300px;line-height:1.65;
+  opacity:0;animation:fU .5s ease 2.6s forwards;
+}
+@keyframes fU{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes killI{to{opacity:0;pointer-events:none;}}
+@keyframes growW{to{width:180px;}}
+
+/* ── HEADER ── */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(8,0,0,.97);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--borde);
+  padding:.75rem 1.4rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.h-logo{font-family:'Courier New',monospace;font-size:.72rem;letter-spacing:.1em;}
+.h-logo em{color:var(--sangre);font-style:normal;}
+.h-dia{
+  font-family:'Courier New',monospace;font-size:.56rem;
+  color:var(--sangre);background:var(--sangre-s);
+  border:1px solid var(--borde-f);padding:.22rem .55rem;letter-spacing:.1em;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:90vh;display:flex;flex-direction:column;justify-content:center;
+  padding:3rem 1.4rem 3.5rem;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(204,34,0,.08) 0%,transparent 55%),
+             radial-gradient(ellipse at 0% 100%,rgba(139,21,0,.06) 0%,transparent 50%);
+  pointer-events:none;
+}
+/* gotas de fondo */
+.gotas{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.gota{
+  position:absolute;width:3px;border-radius:0 0 3px 3px;
+  background:linear-gradient(to bottom,rgba(204,34,0,.3),transparent);
+  animation:caer linear infinite;
+}
+@keyframes caer{from{transform:translateY(-20px);opacity:0;}
+  10%{opacity:1;}to{transform:translateY(100vh);opacity:0;}}
+.hero-eyebrow{
+  font-family:'Courier New',monospace;font-size:.62rem;
+  color:var(--sangre);letter-spacing:.2em;margin-bottom:1.2rem;
+  opacity:0;animation:fU .5s ease 4.4s forwards;
+}
+.hero-title{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:clamp(2.4rem,9vw,5.5rem);line-height:.93;
+  text-transform:uppercase;letter-spacing:.01em;
+  margin-bottom:1.8rem;
+  opacity:0;animation:fU .7s ease 4.6s forwards;
+}
+.hero-title .tS{color:var(--sangre);}
+.hero-title .tG{color:var(--gris-claro);}
+.hero-desc{
+  font-weight:300;font-size:1rem;line-height:1.8;
+  color:var(--texto);max-width:500px;margin-bottom:2rem;
+  opacity:0;animation:fU .6s ease 4.8s forwards;
+}
+.hero-pills{
+  display:flex;gap:.6rem;flex-wrap:wrap;
+  opacity:0;animation:fU .5s ease 5s forwards;
+}
+.pill{
+  background:var(--panel2);border:1px solid var(--borde);
+  border-radius:3px;padding:.5rem .9rem;
+  font-family:'Courier New',monospace;font-size:.58rem;
+  letter-spacing:.06em;color:var(--blanco);
+}
+.pill.rojo{border-color:var(--borde-f);color:var(--sangre);}
+
+/* ── RETO ── */
+.reto-strip{
+  background:rgba(204,34,0,.03);
+  border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);
+  padding:1.1rem 1.4rem;
+}
+.reto-tag{font-family:'Courier New',monospace;font-size:.56rem;color:var(--dim);letter-spacing:.15em;margin-bottom:.6rem;}
+.reto-dots{display:flex;gap:4px;flex-wrap:wrap;}
+.dot{width:14px;height:14px;border-radius:2px;background:rgba(255,255,255,.05);}
+.dot.done{background:rgba(204,34,0,.45);}
+.dot.hoy{background:var(--sangre);box-shadow:0 0 10px rgba(204,34,0,.55);}
+
+/* ── SECCIONES ── */
+.sec{padding:3.2rem 1.4rem;position:relative;z-index:1;}
+.sec-alt{background:var(--panel);}
+.sec-tag{font-family:'Courier New',monospace;font-size:.58rem;color:var(--sangre);letter-spacing:.18em;margin-bottom:.5rem;}
+.sec-title{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:clamp(1.8rem,6vw,2.8rem);
+  text-transform:uppercase;letter-spacing:.02em;
+  color:var(--blanco);line-height:1.02;margin-bottom:1.8rem;
+}
+.sec-title em{color:var(--sangre);font-style:normal;}
+
+/* ── CIFRAS ── */
+.cifras-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.cc{background:var(--panel2);border-radius:4px;padding:1.3rem 1rem;border-top:3px solid var(--sangre);transition:transform .2s;}
+.cc:hover{transform:translateY(-3px);}
+.cc.naranja{border-top-color:var(--naranja);}
+.cc.dorado{border-top-color:var(--dorado);}
+.cc.gris{border-top-color:var(--gris-claro);}
+.cc-num{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:clamp(1.8rem,6vw,2.4rem);
+  color:var(--sangre);line-height:1;margin-bottom:.4rem;
+}
+.cc.naranja .cc-num{color:var(--naranja);}
+.cc.dorado .cc-num{color:var(--dorado);}
+.cc.gris .cc-num{color:var(--gris-claro);}
+.cc-label{font-family:'Courier New',monospace;font-size:.53rem;color:var(--dim);letter-spacing:.05em;line-height:1.5;}
+
+/* ── CASOS EMBLEMÁTICOS ── */
+.casos-list{display:flex;flex-direction:column;gap:1.3rem;}
+.caso{
+  background:var(--panel2);border-radius:4px;overflow:hidden;
+  border-left:4px solid var(--sangre);
+}
+.caso.para{border-left-color:var(--naranja);}
+.caso.estatal{border-left-color:var(--gris-claro);}
+.caso-header{
+  padding:1rem 1.2rem .8rem;
+  cursor:pointer;display:flex;gap:.8rem;align-items:flex-start;
+  transition:background .2s;
+}
+.caso-header:hover{background:rgba(204,34,0,.06);}
+.caso-fecha{
+  font-family:'Courier New',monospace;font-size:.55rem;
+  color:var(--dim);letter-spacing:.08em;flex-shrink:0;
+  margin-top:3px;min-width:3.5rem;
+}
+.caso-nombre{
+  font-family:'Montserrat',sans-serif;font-weight:800;
+  font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--blanco);flex:1;line-height:1.2;
+}
+.caso-muertes{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:1.1rem;color:var(--sangre);flex-shrink:0;
+}
+.caso.para .caso-muertes{color:var(--naranja);}
+.caso.estatal .caso-muertes{color:var(--gris-claro);}
+.caso-body{
+  display:none;padding:0 1.2rem 1.2rem;
+}
+.caso-body.open{display:block;}
+.caso-actor{
+  font-family:'Courier New',monospace;font-size:.54rem;
+  letter-spacing:.1em;margin-bottom:.7rem;
+}
+.actor-farc{color:var(--sangre);}
+.actor-para{color:var(--naranja);}
+.actor-estatal{color:var(--gris-claro);}
+.caso-texto{
+  font-weight:300;font-size:.9rem;line-height:1.75;
+  color:var(--texto);margin-bottom:.7rem;
+  font-style:italic;
+}
+.caso-dato{
+  font-family:'Courier New',monospace;font-size:.56rem;
+  color:var(--sangre);letter-spacing:.06em;
+  background:rgba(204,34,0,.06);border-left:2px solid rgba(204,34,0,.3);
+  padding:.5rem .8rem;border-radius:0 3px 3px 0;
+  line-height:1.6;
+}
+.caso.para .caso-dato{color:var(--naranja);background:rgba(224,80,16,.06);border-left-color:rgba(224,80,16,.3);}
+.caso-toggle{
+  font-family:'Courier New',monospace;font-size:.6rem;
+  color:var(--dim);flex-shrink:0;margin-top:3px;
+  transition:transform .3s;
+}
+.caso-toggle.open{transform:rotate(180deg);}
+
+/* ── BARRAS RESPONSABILIDAD ── */
+.resp-list{display:flex;flex-direction:column;gap:1rem;}
+.rl-item{background:var(--panel2);border-radius:3px;padding:1rem 1.2rem;}
+.rl-head{display:flex;justify-content:space-between;font-family:'Courier New',monospace;font-size:.64rem;letter-spacing:.05em;margin-bottom:.5rem;}
+.rl-name{color:var(--blanco);}
+.rl-pct{color:var(--sangre);}
+.rl-track{height:7px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-bottom:.4rem;}
+.rl-fill{height:100%;border-radius:2px;width:0;transition:width 1.6s cubic-bezier(.16,1,.3,1);}
+.fa{background:var(--naranja);}
+.fb{background:var(--sangre);}
+.fc{background:#666;}
+.fd{background:#444;}
+.rl-desc{font-family:'Courier New',monospace;font-size:.55rem;color:var(--dim);letter-spacing:.04em;line-height:1.5;}
+
+/* ── CÓMO SE EJECUTABAN ── */
+.metodos-grid{display:flex;flex-direction:column;gap:.8rem;}
+.metodo{
+  background:var(--panel2);border-radius:4px;
+  padding:1rem 1.2rem;
+  border-left:3px solid var(--sangre);
+  display:flex;gap:.9rem;align-items:flex-start;
+}
+.metodo-emoji{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+.metodo-titulo{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:.88rem;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--blanco);margin-bottom:.25rem;
+}
+.metodo-desc{font-weight:300;font-size:.86rem;line-height:1.65;color:var(--texto);}
+.metodo-dato{
+  font-family:'Courier New',monospace;font-size:.54rem;
+  color:var(--sangre);margin-top:.35rem;letter-spacing:.05em;
+}
+
+/* ── MASACRES HOY ── */
+.hoy-box{
+  background:rgba(204,34,0,.07);
+  border:1px solid rgba(204,34,0,.3);
+  border-radius:4px;padding:1.4rem;
+}
+.hoy-titulo{
+  font-family:'Montserrat',sans-serif;font-weight:800;
+  font-size:1rem;text-transform:uppercase;color:var(--sangre);
+  letter-spacing:.04em;margin-bottom:.7rem;
+}
+.hoy-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.9rem;}
+.hs{background:rgba(204,34,0,.05);border-radius:3px;padding:.8rem;text-align:center;}
+.hs-n{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:1.6rem;color:var(--sangre);line-height:1;margin-bottom:.25rem;
+}
+.hs-l{font-family:'Courier New',monospace;font-size:.52rem;color:var(--dim);line-height:1.4;}
+.hoy-nota{font-weight:300;font-size:.9rem;font-style:italic;color:var(--texto);line-height:1.7;}
+
+/* ── LÍNEA DEL TIEMPO ── */
+.tl{position:relative;padding-left:1.5rem;}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--sangre),rgba(204,34,0,.1));}
+.tl-item{position:relative;padding:0 0 2rem 1.2rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{position:absolute;left:-1.87rem;top:4px;width:12px;height:12px;border-radius:50%;background:var(--sangre);box-shadow:0 0 8px rgba(204,34,0,.5);}
+.tl-dot.pico{background:#ff2200;box-shadow:0 0 14px rgba(255,34,0,.7);}
+.tl-dot.baja{background:#996600;box-shadow:0 0 8px rgba(153,102,0,.5);}
+.tl-año{font-family:'Courier New',monospace;font-weight:700;font-size:.8rem;color:var(--sangre);letter-spacing:.1em;margin-bottom:.3rem;}
+.tl-dot.pico+.tl-año{color:#ff2200;}
+.tl-dot.baja+.tl-año{color:#cc8800;}
+.tl-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.6rem;color:var(--blanco);line-height:1;margin-bottom:.3rem;}
+.tl-desc{font-weight:300;font-size:.88rem;color:var(--texto);line-height:1.65;}
+.tl-tag{display:inline-block;margin-top:.4rem;font-family:'Courier New',monospace;font-size:.52rem;color:var(--sangre);background:var(--sangre-s);border:1px solid var(--borde);padding:.15rem .5rem;border-radius:2px;letter-spacing:.08em;}
+
+/* ── REFLEXIÓN ── */
+.ref-sec{padding:3.5rem 1.4rem;background:var(--panel);text-align:center;position:relative;z-index:1;}
+.ref-deco{font-family:'Merriweather',serif;font-size:8rem;color:rgba(204,34,0,.06);line-height:1;margin-bottom:-3rem;user-select:none;}
+.ref-quote{font-family:'Merriweather',serif;font-size:clamp(1.05rem,3.5vw,1.35rem);font-style:italic;line-height:1.8;color:var(--blanco);max-width:460px;margin:0 auto 1.2rem;position:relative;z-index:1;}
+.ref-cite{font-family:'Courier New',monospace;font-size:.56rem;color:var(--sangre);letter-spacing:.15em;}
+
+/* ── CTA ── */
+.cta-sec{padding:3rem 1.4rem;text-align:center;position:relative;z-index:1;}
+.cta-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;text-transform:uppercase;letter-spacing:.03em;color:var(--blanco);margin-bottom:.7rem;}
+.cta-body{font-weight:300;font-size:.92rem;font-style:italic;color:var(--texto);max-width:360px;margin:0 auto 2rem;line-height:1.65;}
+.btn-wa{display:inline-flex;align-items:center;gap:.6rem;background:#25D366;color:white;font-family:'Courier New',monospace;font-size:.72rem;letter-spacing:.08em;padding:.9rem 1.8rem;border-radius:4px;border:none;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;margin-bottom:1.5rem;}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3);}
+.nav-dias{font-family:'Courier New',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.08em;}
+.nav-dias span{color:var(--sangre);}
+
+/* ── INSTALL ── */
+#install-banner{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:2px solid var(--sangre);padding:1rem 1.4rem;display:none;align-items:center;justify-content:space-between;gap:1rem;z-index:1000;}
+#install-banner.on{display:flex;}
+.ib-txt{font-family:'Courier New',monospace;font-size:.6rem;color:var(--blanco);line-height:1.5;}
+.ib-txt strong{color:var(--sangre);display:block;}
+.btn-ib{background:var(--sangre-dim);color:white;border:none;border-radius:3px;font-family:'Courier New',monospace;font-size:.62rem;padding:.55rem .9rem;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.btn-x{background:none;border:none;color:var(--dim);font-size:1.2rem;cursor:pointer;flex-shrink:0;}
+
+/* ── FOOTER ── */
+footer{padding:2rem 1.4rem;text-align:center;border-top:1px solid var(--borde);font-family:'Courier New',monospace;font-size:.54rem;color:var(--dim);letter-spacing:.1em;line-height:1.9;position:relative;z-index:1;}
+footer strong{color:var(--sangre);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s;}
+.reveal.on{opacity:1;transform:none;}
+.counter{display:inline;}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-num">4.237</div>
+  <div class="intro-label">MASACRES DOCUMENTADAS<br>EN COLOMBIA · 1958–2019</div>
+  <div class="intro-sep"></div>
+  <div class="intro-sub">COLOMBIA SIN VENDA · DÍA 11 / 20</div>
+  <p class="intro-cita">"Cada número fue una familia. Un pueblo. Un momento en que la humanidad se rompió."</p>
+</div>
+
+<!-- INSTALL -->
+<div id="install-banner">
+  <div class="ib-txt"><strong>📲 Instala Colombia Sin Venda</strong>20 días · offline</div>
+  <button class="btn-ib" id="btn-inst">INSTALAR</button>
+  <button class="btn-x" id="btn-x">✕</button>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="h-logo">COLOMBIA <em>SIN VENDA</em></div>
+  <div class="h-dia">DÍA 11 / 20</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="gotas" id="gotas"></div>
+
+  <p class="hero-eyebrow">🩸 Las masacres que Colombia no puede olvidar</p>
+  <h1 class="hero-title">
+    LAS <span class="tS">MASACRES</span><br>
+    QUE NO SALEN<br>
+    EN LAS <span class="tG">CANCIONES</span>
+  </h1>
+  <p class="hero-desc">
+    4.237 masacres en 61 años. 24.600 colombianos asesinados en grupo.
+    El 62% de los municipios del país tiene al menos una.
+    Estas historias no están en ninguna lista de éxitos —
+    pero están en la memoria de las familias que las vivieron.
+  </p>
+  <div class="hero-pills">
+    <div class="pill rojo">4.237 masacres</div>
+    <div class="pill rojo">24.600 muertos</div>
+    <div class="pill">62% municipios afectados</div>
+    <div class="pill">1998–2002: pico máximo</div>
+  </div>
+</section>
+
+<!-- RETO -->
+<div class="reto-strip reveal">
+  <div class="reto-tag">▶ RETO 20 DÍAS DE VERDAD — Colombia Sin Venda</div>
+  <div class="reto-dots" id="dots"></div>
+</div>
+
+<!-- CIFRAS -->
+<section class="sec reveal">
+  <p class="sec-tag">// 01 — los números</p>
+  <h2 class="sec-title">EL PESO<br><em>DEL HORROR</em></h2>
+
+  <div class="cifras-grid">
+    <div class="cc">
+      <div class="cc-num"><span class="counter" data-target="4237">0</span></div>
+      <div class="cc-label">Masacres documentadas entre 1958 y 2019 · CNMH</div>
+    </div>
+    <div class="cc naranja">
+      <div class="cc-num"><span class="counter" data-target="24600">0</span></div>
+      <div class="cc-label">Personas asesinadas en masacres · Mayoría civiles inocentes</div>
+    </div>
+    <div class="cc dorado">
+      <div class="cc-num">62%</div>
+      <div class="cc-label">De los municipios colombianos tienen al menos una masacre registrada</div>
+    </div>
+    <div class="cc">
+      <div class="cc-num"><span class="counter" data-target="1620">0</span></div>
+      <div class="cc-label">Masacres solo entre 1998 y 2002 — el período más oscuro · CNMH</div>
+    </div>
+    <div class="cc gris">
+      <div class="cc-num">230</div>
+      <div class="cc-label">Masacres en el año 2000 solo — casi una masacre cada día y medio</div>
+    </div>
+    <div class="cc naranja">
+      <div class="cc-num"><span class="counter" data-target="11751">0</span></div>
+      <div class="cc-label">Víctimas en masacres registradas entre 1991 y 2012 · CNMH base de datos</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS EMBLEMÁTICOS -->
+<section class="sec sec-alt reveal">
+  <p class="sec-tag">// 02 — los nombres que Colombia debe recordar</p>
+  <h2 class="sec-title">TOCA CADA<br><em>HISTORIA</em></h2>
+  <p style="font-family:'Courier New',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.08em;margin-bottom:1.5rem;line-height:1.6;">
+    🔴 GUERRILLA &nbsp;|&nbsp; 🟠 PARAMILITARES &nbsp;|&nbsp; ⚫ ESTADO/MIXTO
+  </p>
+
+  <div class="casos-list">
+
+    <!-- BOJAYÁ -->
+    <div class="caso">
+      <div class="caso-header" onclick="toggle(this)">
+        <span class="caso-fecha">02·05·2002</span>
+        <span class="caso-nombre">Bojayá — Chocó</span>
+        <span class="caso-muertes">119 muertos</span>
+        <span class="caso-toggle">▼</span>
+      </div>
+      <div class="caso-body">
+        <div class="caso-actor actor-farc">🔴 FARC-EP · Bloque José María Córdoba</div>
+        <p class="caso-texto">
+          Las FARC lanzaron un cilindro bomba casero contra la iglesia de Bellavista
+          donde se habían refugiado cientos de civiles huyendo de los enfrentamientos.
+          La explosión mató a 119 personas en el acto, 48 de ellas menores de edad.
+          Hasta ese momento, la peor masacre de la guerra colombiana.
+          La comunidad afrodescendiente del Atrato nunca volvió a ser la misma.
+        </p>
+        <div class="caso-dato">
+          ▶ 119 muertos · 98 heridos · 48 menores entre las víctimas<br>
+          ▶ La Corte IDH condenó al Estado colombiano por omisión<br>
+          ▶ CNMH: "Bojayá — La guerra sin límites" (2010)
+        </div>
+      </div>
+    </div>
+
+    <!-- EL SALADO -->
+    <div class="caso para">
+      <div class="caso-header" onclick="toggle(this)">
+        <span class="caso-fecha">16·02·2000</span>
+        <span class="caso-nombre">El Salado — Bolívar</span>
+        <span class="caso-muertes">+60 muertos</span>
+        <span class="caso-toggle">▼</span>
+      </div>
+      <div class="caso-body">
+        <div class="caso-actor actor-para">🟠 AUC — Autodefensas Campesinas de Córdoba y Urabá</div>
+        <p class="caso-texto">
+          Durante cuatro días, paramilitares tomaron el corregimiento de El Salado.
+          Reunieron a la comunidad en la plaza, los acusaron de ser colaboradores
+          de la guerrilla y los torturaron y asesinaron uno a uno, a veces con música.
+          Más de 60 personas muertas. El pueblo quedó vacío durante años.
+          El CNMH lo describe como uno de los actos más bárbaros del conflicto.
+        </p>
+        <div class="caso-dato caso-dato" style="border-left-color:rgba(224,80,16,.3);background:rgba(224,80,16,.06);color:var(--naranja);">
+          ▶ 4 días de terror · +60 muertos · Comunidad reunida en plaza<br>
+          ▶ Los paramilitares torturaron con música de fondo<br>
+          ▶ CNMH: "El Salado — Esa guerra no era nuestra" (2009)
+        </div>
+      </div>
+    </div>
+
+    <!-- LA ROCHELA -->
+    <div class="caso estatal">
+      <div class="caso-header" onclick="toggle(this)">
+        <span class="caso-fecha">18·01·1989</span>
+        <span class="caso-nombre">La Rochela — Santander</span>
+        <span class="caso-muertes">12 muertos</span>
+        <span class="caso-toggle">▼</span>
+      </div>
+      <div class="caso-body">
+        <div class="caso-actor actor-estatal">⚫ Paramilitares + Narcotraficantes + Agentes del Estado</div>
+        <p class="caso-texto">
+          Una comisión judicial de 15 personas investigaba masacres previas en el
+          Magdalena Medio. 12 de los 15 integrantes fueron asesinados por una alianza
+          de narcotraficantes, paramilitares y agentes del Estado que querían silenciar
+          la investigación. Es uno de los casos más emblemáticos de la impunidad en Colombia.
+          El Estado fue condenado por la Corte IDH en 2007.
+        </p>
+        <div class="caso-dato" style="border-left-color:rgba(136,136,136,.3);background:rgba(136,136,136,.06);color:var(--gris-claro);">
+          ▶ 12 investigadores judiciales asesinados · 3 sobrevivientes<br>
+          ▶ Corte IDH condenó al Estado colombiano en 2007<br>
+          ▶ El proceso judicial sigue inconcluso décadas después
+        </div>
+      </div>
+    </div>
+
+    <!-- TRUJILLO -->
+    <div class="caso para">
+      <div class="caso-header" onclick="toggle(this)">
+        <span class="caso-fecha">1986–1994</span>
+        <span class="caso-nombre">Trujillo — Valle del Cauca</span>
+        <span class="caso-muertes">245 muertos</span>
+        <span class="caso-toggle">▼</span>
+      </div>
+      <div class="caso-body">
+        <div class="caso-actor actor-para">🟠 Paramilitares del Norte del Valle + Narcotraficantes</div>
+        <p class="caso-texto">
+          Durante ocho años, una alianza entre narcotraficantes, paramilitares y
+          agentes del Estado desapareció y asesinó a 245 personas en la región de Trujillo.
+          Los cuerpos aparecían descuartizados o arrojados al río Cauca.
+          Fue la primera masacre reconocida oficialmente por el Estado colombiano
+          ante la Comisión Interamericana de Derechos Humanos.
+        </p>
+        <div class="caso-dato" style="border-left-color:rgba(224,80,16,.3);background:rgba(224,80,16,.06);color:var(--naranja);">
+          ▶ 245 muertos en 8 años · Cuerpos arrojados al río Cauca<br>
+          ▶ Primera masacre reconocida oficialmente por el Estado<br>
+          ▶ CNMH: "Trujillo — Una tragedia que no cesa" (2008)
+        </div>
+      </div>
+    </div>
+
+    <!-- EL NAYA -->
+    <div class="caso para">
+      <div class="caso-header" onclick="toggle(this)">
+        <span class="caso-fecha">Semana Santa 2001</span>
+        <span class="caso-nombre">El Naya — Cauca/Valle</span>
+        <span class="caso-muertes">~40 muertos</span>
+        <span class="caso-toggle">▼</span>
+      </div>
+      <div class="caso-body">
+        <div class="caso-actor actor-para">🟠 AUC — Bloque Calima</div>
+        <p class="caso-texto">
+          Durante la Semana Santa del 2001, paramilitares del Bloque Calima
+          ingresaron a las comunidades indígenas y afrocolombianas del río Naya.
+          Durante varios días, asesinaron a unas 40 personas, muchas con motosierras,
+          y desplazaron a más de 8.000 habitantes.
+          El hecho marcó un hito en el terror contra comunidades étnicas del Pacífico.
+        </p>
+        <div class="caso-dato" style="border-left-color:rgba(224,80,16,.3);background:rgba(224,80,16,.06);color:var(--naranja);">
+          ▶ ~40 muertos · 8.000+ desplazados · Comunidades indígenas y afro<br>
+          ▶ Semana Santa 2001 · Bloque Calima de las AUC<br>
+          ▶ Algunos cuerpos nunca fueron recuperados ni identificados
+        </div>
+      </div>
+    </div>
+
+    <!-- BOJAYÁ 2 / LA CHINITA -->
+    <div class="caso">
+      <div class="caso-header" onclick="toggle(this)">
+        <span class="caso-fecha">23·01·1994</span>
+        <span class="caso-nombre">La Chinita — Urabá</span>
+        <span class="caso-muertes">35 muertos</span>
+        <span class="caso-toggle">▼</span>
+      </div>
+      <div class="caso-body">
+        <div class="caso-actor actor-farc">🔴 FARC-EP · Frente 5</div>
+        <p class="caso-texto">
+          Las FARC irrumpieron en un baile popular en el barrio La Chinita de Apartadó
+          a las 2 de la madrugada y dispararon indiscriminadamente contra los asistentes.
+          35 personas muertas, incluyendo mujeres y jóvenes de la comunidad.
+          Las víctimas eran trabajadores bananeros y sus familias —
+          muchos militantes del partido político Esperanza, Paz y Libertad.
+        </p>
+        <div class="caso-dato">
+          ▶ 35 muertos · Baile popular · Madrugada · Víctimas civiles<br>
+          ▶ Las FARC atacaron porque las víctimas apoyaban un partido rival<br>
+          ▶ Uno de los crímenes políticos más brutales de las FARC contra civiles
+        </div>
+      </div>
+    </div>
+
+    <!-- MASACRE DE GRANADA -->
+    <div class="caso">
+      <div class="caso-header" onclick="toggle(this)">
+        <span class="caso-fecha">06·12·2000</span>
+        <span class="caso-nombre">Granada — Antioquia</span>
+        <span class="caso-muertes">22 muertos</span>
+        <span class="caso-toggle">▼</span>
+      </div>
+      <div class="caso-body">
+        <div class="caso-actor actor-farc">🔴 FARC-EP · Frentes 9 y 47</div>
+        <p class="caso-texto">
+          En la toma guerrillera al municipio de Granada el 6 de diciembre del 2000,
+          las FARC atacaron con pipetas de gas y tatucos el casco urbano.
+          22 personas murieron y 25 resultaron heridas. El centro del pueblo fue arrasado.
+          Granada fue uno de los municipios más azotados del conflicto en Antioquia —
+          la región de donde las FARC decían "defender" al pueblo.
+        </p>
+        <div class="caso-dato">
+          ▶ 22 muertos · 25 heridos · Centro del pueblo destruido<br>
+          ▶ Pipetas de gas y tatucos lanzados sobre viviendas civiles<br>
+          ▶ Granada: uno de los municipios más afectados del Oriente antioqueño
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESPONSABILIDAD -->
+<section class="sec reveal">
+  <p class="sec-tag">// 03 — quién fue responsable</p>
+  <h2 class="sec-title">EL PESO DE<br><em>LA CULPA</em></h2>
+
+  <div class="resp-list">
+    <div class="rl-item">
+      <div class="rl-head"><span class="rl-name">Paramilitares (AUC y sucesores)</span><span class="rl-pct">~58%</span></div>
+      <div class="rl-track"><div class="rl-fill fa" data-w="58"></div></div>
+      <div class="rl-desc">Responsables de la mayoría de masacres documentadas · El Salado, El Naya, La Gabarra, Trujillo</div>
+    </div>
+    <div class="rl-item">
+      <div class="rl-head"><span class="rl-name">Guerrillas (FARC + ELN)</span><span class="rl-pct">~17%</span></div>
+      <div class="rl-track"><div class="rl-fill fb" data-w="17"></div></div>
+      <div class="rl-desc">+240 masacres FARC documentadas (1980–2012) · Bojayá, La Chinita, Granada, San José de Apartadó</div>
+    </div>
+    <div class="rl-item">
+      <div class="rl-head"><span class="rl-name">Agentes del Estado</span><span class="rl-pct">~8%</span></div>
+      <div class="rl-track"><div class="rl-fill fc" data-w="8"></div></div>
+      <div class="rl-desc">Falsos positivos y operaciones conjuntas con paramilitares · La Rochela, Trujillo</div>
+    </div>
+    <div class="rl-item">
+      <div class="rl-head"><span class="rl-name">Sin identificar / Múltiples actores</span><span class="rl-pct">~17%</span></div>
+      <div class="rl-track"><div class="rl-fill fd" data-w="17"></div></div>
+      <div class="rl-desc">Fuego cruzado, responsabilidad compartida o no establecida judicialmente</div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.3rem;background:var(--sangre-s);border:1px solid var(--borde);border-radius:4px;padding:1.2rem;">
+    <p style="font-weight:300;font-size:.88rem;font-style:italic;color:var(--texto);line-height:1.75;">
+      <strong style="color:var(--blanco);font-style:normal;">Todos los actores armados cometieron masacres.</strong>
+      El debate sobre quién mató más es importante — pero no debe servir para exculpar a ninguno.
+      Una masacre cometida por cualquier grupo armado, con cualquier argumento, es siempre un crimen de guerra.
+    </p>
+  </div>
+</section>
+
+<!-- CÓMO LAS COMETÍAN -->
+<section class="sec sec-alt reveal">
+  <p class="sec-tag">// 04 — los métodos</p>
+  <h2 class="sec-title">CÓMO<br><em>LO HACÍAN</em></h2>
+
+  <div class="metodos-grid">
+    <div class="metodo">
+      <div class="metodo-emoji">💣</div>
+      <div>
+        <div class="metodo-titulo">Cilindros bomba y pipetas de gas</div>
+        <div class="metodo-desc">Las FARC desarrollaron artefactos explosivos improvisados que lanzaban contra poblaciones civiles. Los cilindros eran especialmente letales en espacios cerrados como iglesias o mercados.</div>
+        <div class="metodo-dato">▶ Bojayá (2002): cilindro bomba en iglesia con 119 muertos</div>
+      </div>
+    </div>
+    <div class="metodo">
+      <div class="metodo-emoji">🏘️</div>
+      <div>
+        <div class="metodo-titulo">Tomas guerrilleras a poblados</div>
+        <div class="metodo-desc">Grupos armados atacaban estaciones de policía pero también disparaban indiscriminadamente contra casas, destruyendo el casco urbano y causando bajas civiles. 854 ataques guerrilleros a poblados documentados.</div>
+        <div class="metodo-dato">▶ Granada, Bojayá, Vigía del Fuerte, Barbacoas: pueblos arrasados</div>
+      </div>
+    </div>
+    <div class="metodo">
+      <div class="metodo-emoji">⚔️</div>
+      <div>
+        <div class="metodo-titulo">Reunión y ejecución en plaza</div>
+        <div class="metodo-desc">Paramilitares convocaban a la comunidad en la plaza pública, los acusaban de colaborar con el bando contrario y ejecutaban a los señalados. El objetivo era sembrar terror en toda la comunidad.</div>
+        <div class="metodo-dato">▶ El Salado (2000): 4 días de terror con comunidad reunida</div>
+      </div>
+    </div>
+    <div class="metodo">
+      <div class="metodo-emoji">🌊</div>
+      <div>
+        <div class="metodo-titulo">Cuerpos arrojados a los ríos</div>
+        <div class="metodo-desc">Para evitar que las comunidades pudieran recuperar y enterrar a sus muertos, cuerpos eran arrojados a ríos como el Cauca y el Atrato. Los ríos colombianos se convirtieron en escenario de horror durante décadas.</div>
+        <div class="metodo-dato">▶ Trujillo: cuerpos descuartizados al río Cauca · 1986–1994</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRONOLOGÍA -->
+<section class="sec reveal">
+  <p class="sec-tag">// 05 — la evolución</p>
+  <h2 class="sec-title">40 AÑOS<br><em>de terror</em></h2>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-año">1958–1980</div>
+      <div class="tl-num">Inicio del registro</div>
+      <div class="tl-desc">El CNMH comienza a documentar desde este período. Las masacres existen desde antes — La Violencia dejó cientos de miles de muertos entre 1948 y 1958 — pero el sistema moderno de registro parte de aquí.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-año">1986–1994</div>
+      <div class="tl-num">Trujillo y la escalada</div>
+      <div class="tl-desc">Las masacres se vuelven sistemáticas. Narcotráfico, paramilitarismo y guerrilla se disputan territorios usando el terror contra civiles como arma. Trujillo dura 8 años sin que nadie lo detenga.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot pico"></div>
+      <div class="tl-año">1998–2002 — PICO MÁXIMO</div>
+      <div class="tl-num">1.620 masacres</div>
+      <div class="tl-desc">El período más oscuro de Colombia. En el año 2000 ocurrieron 230 masacres — una cada día y medio. El Salado, Bojayá, La Chinita, el Naya, Mapiripán. Colombia en el infierno.</div>
+      <span class="tl-tag">⚠ 38% de todas las masacres en solo 4 años</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot baja"></div>
+      <div class="tl-año">2003–2010</div>
+      <div class="tl-num">Reducción gradual</div>
+      <div class="tl-desc">La presión militar y la desmovilización de las AUC reducen las masacres. Pero no desaparecen. Grupos sucesores ("BACRIM") adoptan métodos similares con nuevos nombres.</div>
+      <span class="tl-tag">▼ Reducción pero no desaparición</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-año">2016–2024</div>
+      <div class="tl-num">Reactivación</div>
+      <div class="tl-desc">Tras el acuerdo de paz, las masacres vuelven a crecer. En 2020 se registraron 91 masacres — el año post-paz con más víctimas. Disidencias, ELN y Clan del Golfo repiten el patrón.</div>
+      <span class="tl-tag">⚠ 2020: 91 masacres — pico post-acuerdo</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOY SIGUEN -->
+<section class="sec sec-alt reveal">
+  <p class="sec-tag">// 06 — hoy no es historia</p>
+  <h2 class="sec-title">LAS MASACRES<br><em>NO PARARON</em></h2>
+
+  <div class="hoy-box">
+    <div class="hoy-titulo">⚠️ Masacres registradas después del "acuerdo de paz"</div>
+    <div class="hoy-stats">
+      <div class="hs"><div class="hs-n">91</div><div class="hs-l">Masacres solo en 2020 · El peor año post-acuerdo · Indepaz</div></div>
+      <div class="hs"><div class="hs-n">64</div><div class="hs-l">Masacres en 2023 · 205 muertos · Solo en 2023</div></div>
+    </div>
+    <p class="hoy-nota">
+      En 2016 se firmó el acuerdo de paz. En 2020 ocurrieron 91 masacres.
+      <strong style="color:var(--blanco);">La firma no detuvo las masacres — solo cambió de actores.</strong>
+      Disidencias de las FARC, ELN y el Clan del Golfo continúan cometiendo masacres
+      en los mismos territorios donde la guerrilla decía "defender al pueblo".
+    </p>
+  </div>
+</section>
+
+<!-- REFLEXIÓN -->
+<section class="ref-sec reveal">
+  <div class="ref-deco">·</div>
+  <blockquote class="ref-quote">
+    "Cada masacre tiene un nombre de pueblo.
+    Bojayá. El Salado. Trujillo. La Chinita.
+    Cuando alguien romantiza a quien las cometió,
+    está borrando esos nombres.
+    Recordarlos es el mínimo acto de respeto
+    que les debemos a los que murieron."
+  </blockquote>
+  <p class="ref-cite">— COLOMBIA SIN VENDA · Día 11 de 20</p>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec reveal">
+  <h2 class="cta-title">NOMBRA<br>A LAS VÍCTIMAS</h2>
+  <p class="cta-body">
+    Comparte este día con alguien que haya escuchado canciones que glorifican
+    a grupos armados. Que sepa los nombres de lo que hicieron.
+  </p>
+  <a id="btn-wa" class="btn-wa" href="#" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Compartir en WhatsApp
+  </a>
+  <div class="nav-dias">
+    ← DÍA 10: Los Desplazados · PRÓXIMO → <span>DÍA 12: Extorsión — El Impuesto del Miedo</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Desarrollada por <strong>Vibras Positivas HM</strong> — Derechos de Autor Reservados<br>
+  Caucasia, Antioquia · Colombia · 2026<br>
+  Fuentes: CNMH "Basta Ya" · Rutas del Conflicto · Wikipedia Masacres Colombia · Indepaz · Eje21 · Semana · Verdad Abierta
+</footer>
+
+<!-- MANIFEST -->
+<script>
+const m={name:"Colombia Sin Venda",short_name:"Sin Venda",
+description:"20 días de verdad sobre el conflicto armado colombiano",
+start_url:"./",display:"standalone",
+background_color:"#080000",theme_color:"#cc2200",
+icons:[
+  {src:"https://placehold.co/192x192/cc2200/ffffff?text=CSV",sizes:"192x192",type:"image/png"},
+  {src:"https://placehold.co/512x512/cc2200/ffffff?text=CSV",sizes:"512x512",type:"image/png"}
+]};
+document.getElementById('manifest-link').href=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:'application/json'}));
+</script>
+<script>
+if('serviceWorker' in navigator){
+  const sw=`const C='csv-dia11-v1';
+  self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll([location.href]))));
+  self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));`;
+  navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw],{type:'application/javascript'}))).catch(()=>{});
+}
+</script>
+
+<script>
+// GOTAS
+const gotasEl=document.getElementById('gotas');
+for(let i=0;i<15;i++){
+  const g=document.createElement('div');
+  g.className='gota';
+  const h=30+Math.random()*80;
+  g.style.cssText=`left:${Math.random()*100}%;height:${h}px;
+    animation-duration:${3+Math.random()*5}s;
+    animation-delay:${Math.random()*8}s;
+    opacity:${.2+Math.random()*.3};`;
+  gotasEl.appendChild(g);
+}
+
+// DOTS
+const dotsEl=document.getElementById('dots');
+for(let i=1;i<=20;i++){
+  const d=document.createElement('div');
+  d.className='dot'+(i<11?' done':'')+(i===11?' hoy':'');
+  dotsEl.appendChild(d);
+}
+
+// REVEAL
+const ro=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');ro.unobserve(x.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// COUNTERS
+function animCount(el,target,dur=2000){
+  let started=false;
+  const co=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting&&!started){
+      started=true;
+      const t0=performance.now();
+      const upd=now=>{
+        const p=Math.min((now-t0)/dur,1);
+        const ev=1-Math.pow(1-p,3);
+        el.textContent=Math.floor(ev*target).toLocaleString('es-CO');
+        if(p<1)requestAnimationFrame(upd);
+      };
+      requestAnimationFrame(upd);
+    }
+  },{threshold:.5});
+  co.observe(el);
+}
+document.querySelectorAll('.counter').forEach(el=>animCount(el,parseInt(el.dataset.target)));
+
+// TOGGLE CASOS
+function toggle(header){
+  const body=header.nextElementSibling;
+  const arrow=header.querySelector('.caso-toggle');
+  const isOpen=body.classList.contains('open');
+  document.querySelectorAll('.caso-body.open').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.caso-toggle.open').forEach(a=>a.classList.remove('open'));
+  if(!isOpen){
+    body.classList.add('open');
+    arrow.classList.add('open');
+    setTimeout(()=>body.scrollIntoView({behavior:'smooth',block:'nearest'}),50);
+  }
+}
+
+// BARRAS
+const bo=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting){setTimeout(()=>x.target.style.width=x.target.dataset.w+'%',200);bo.unobserve(x.target);}
+  });
+},{threshold:.3});
+document.querySelectorAll('.rl-fill').forEach(el=>bo.observe(el));
+
+// INSTALL
+let dp;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;document.getElementById('install-banner').classList.add('on');});
+document.getElementById('btn-inst').addEventListener('click',async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;document.getElementById('install-banner').classList.remove('on');});
+document.getElementById('btn-x').addEventListener('click',()=>document.getElementById('install-banner').classList.remove('on'));
+
+// WHATSAPP
+document.getElementById('btn-wa').href='https://wa.me/?text='+encodeURIComponent(
+  '🇨🇴 *COLOMBIA SIN VENDA — Día 11*\n'+
+  '"Las Masacres que No Salen en las Canciones"\n\n'+
+  '4.237 masacres. 24.600 muertos. El 62% de los municipios afectados.\n'+
+  'Bojayá, El Salado, La Rochela, Trujillo, el Naya, La Chinita.\n'+
+  'Toca cada historia y lee la verdad.\n\n'+
+  '📲 Comparte con quien romantice la violencia armada en Colombia.'
+);
+</script>
+</body>
+</html>
